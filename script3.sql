@@ -1,3 +1,3 @@
-select * from usersTable.PERSONS
-where age > 27
-order by age desc;
+SELECT name, surname, product_name FROM twoTables.ORDERS
+JOIN twoTables.CUSTOMERS ON twoTables.CUSTOMERS.id = twoTables.ORDERS.customer_id
+where lower(name) = 'alexey';

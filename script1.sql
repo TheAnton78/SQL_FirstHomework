@@ -1,22 +1,23 @@
-create schema usersTable;
+create schema twoTables;
 
-create table usersTable.PERSONS(
-    name text not null,
-    surname text not null,
-    age int not null,
-    phone_number text not null,
-    city_of_living text not null,
-    primary key (name, surname, age)
+create table twoTables.CUSTOMERS(
+    id bigserial primary key not null ,
+    name text not null ,
+    surname text not null ,
+    age int not null ,
+    phone_number text
 );
 
-insert into usersTable.PERSONS(name, surname, age, phone_number, city_of_living)
-values('Василий', 'Петров','23','+79193572583','MOSCOW');
+insert into twoTables.CUSTOMERS(id, name, surname, age, phone_number)
+values(1, 'Василий', 'Петров', 23,'+79193572583');
 
-insert into usersTable.PERSONS(name, surname, age, phone_number, city_of_living)
-values('Анатолий', 'Путин','49','+79196872583','PERM');
+update twoTables.CUSTOMERS SET name = 'Alexey' where name = 'Василий';
 
-insert into usersTable.PERSONS(name, surname, age, phone_number, city_of_living)
-values('Генадий', 'Колобков','32','+79193825853','KIROVSK');
+insert into twoTables.CUSTOMERS(id, name, surname, age, phone_number)
+values(2, 'Анатолий', 'Путин',49,'+79196872583');
 
-insert into usersTable.PERSONS(name, surname, age, phone_number, city_of_living)
-values('Олег', 'Тузиков','22','+79193281453','MOSCOW');
+insert into twoTables.CUSTOMERS(id, name, surname, age, phone_number)
+values(3, 'Генадий', 'Колобков', 32,'+79193825853');
+
+insert into twoTables.CUSTOMERS(id, name, surname, age, phone_number)
+values(4, 'Олег', 'Тузиков', 22,'+79193281453');
